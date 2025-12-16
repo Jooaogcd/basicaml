@@ -1,0 +1,12 @@
+(executable
+ (name main)
+ (public_name basicaml)
+ (modules
+  token
+  lexer
+  ast
+  parser
+  env
+  eval
+  machine
+  main))
