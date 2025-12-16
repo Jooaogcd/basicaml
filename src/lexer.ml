@@ -1,23 +1,15 @@
 open Token
 
-
-(* characters classification *)
-
 let is_digit c = c >= '0' && c <= '9'
 let is_letter c =
   (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
 
 let explode s = List.init (String.length s) (String.get s)
 
-(* Leitura de números *)
-
 let rec read_number acc = function
   | c :: rest when is_digit c ->
       read_number (acc ^ String.make 1 c) rest
   | rest -> (int_of_string acc, rest)
-
-
-(* reading identifiers *)
 
 let rec read_ident acc = function
   | c :: rest when is_letter c ->
@@ -32,6 +24,7 @@ let keyword_or_ident = function
   | "GOTO" -> GOTO
   | "END" -> END
   | s -> IDENT s
+
 
 
 
