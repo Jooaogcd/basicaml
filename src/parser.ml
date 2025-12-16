@@ -1,7 +1,6 @@
 open Token
 open Ast
 
-
 let parse_term = function
   | INT n :: rest -> (Const n, rest)
   | IDENT s :: rest -> (Var s, rest)
@@ -20,7 +19,7 @@ and parse_expr_tail left = function
       parse_expr_tail (Sub (left, right)) rest'
   | rest -> (left, rest)
 
-(* Parsing de comandos *)
+
 
 let parse_command = function
   | LET :: IDENT v :: EQUAL :: rest ->

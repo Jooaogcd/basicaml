@@ -26,10 +26,7 @@ let keyword_or_ident = function
   | s -> IDENT s
 
 
-
-
 (* main lexer *)
-
 let rec tokenize = function
   | [] -> []
   | ' ' :: rest -> tokenize rest
@@ -43,5 +40,6 @@ let rec tokenize = function
       let (s, rest') = read_ident (String.make 1 c) rest in
       keyword_or_ident s :: tokenize rest'
   | _ -> failwith "Invalid character"
+
 
 let lex s = tokenize (explode s)
